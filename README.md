@@ -8,3 +8,7 @@ workflows in an MLOps context.
 ```bash
 pip install -r requirements.txt
 python src/train.py
+
+## Version Control
+
+This project uses Git and GitHub for version control.
