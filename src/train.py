@@ -55,6 +55,7 @@ def main():
     )
 
     print(f"Accuracy: {acc:.4f}")
+    print("\nClassification Report:")
     print(report)
 
     joblib.dump(
