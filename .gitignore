@@ -27,3 +27,6 @@ mlruns/
 # IDE
 .vscode/
 .idea/
+data/raw/iris_raw.csv
+data/processed/iris_preprocessed.csv
+data/processed/iris_features.csv
