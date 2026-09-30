@@ -30,3 +30,33 @@ mlruns/
 data/raw/iris_raw.csv
 data/processed/iris_preprocessed.csv
 data/processed/iris_features.csv
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+.venv-feast/
+.venv-mlflow/
+
+# Environment variables
+.env
+.env.*
+
+# MLflow
+mlruns/
+mlflow.db
+mlartifacts/
+confusion_matrix_*.png
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
