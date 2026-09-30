@@ -43,3 +43,6 @@ coverage.xml
 # OS generated files
 .DS_Store
 Thumbs.db
+
+.venv-feast/
+venv-feast/
