@@ -59,4 +59,4 @@ confusion_matrix_*.png
 
 # OS
 .DS_Store
-Thumbs.db
+Thumbs.db.coverage
