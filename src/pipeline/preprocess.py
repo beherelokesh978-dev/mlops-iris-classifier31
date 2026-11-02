@@ -47,7 +47,7 @@ def preprocess(
                 median_value = df[column].median()
                 df[column] = df[column].fillna(median_value)
 
-    # Remove timestamp if present
+    # Remove the collection timestamp because it isn't a model feature.
     if "collected_at" in df.columns:
         df = df.drop(columns=["collected_at"])
 

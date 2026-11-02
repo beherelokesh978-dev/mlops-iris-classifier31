@@ -3,13 +3,13 @@ import logging
 from datetime import datetime, timezone
 from pathlib import Path
 
-import pandas as pd
 from sklearn.datasets import load_iris
 
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s"
 )
+
 
 def collect_data():
     logging.info("Starting data collection")
@@ -29,6 +29,7 @@ def collect_data():
 
     logging.info("Data saved to %s", output_path)
     logging.info("Collected %d rows", len(df))
+
 
 if __name__ == "__main__":
     collect_data()
