@@ -84,6 +84,29 @@ runtime image. The exact image size depends on the pinned Python and
 scikit-learn dependencies; use the `docker images` output rather than assuming
 a particular size.
 
+## Publish to Docker Hub
+
+The `docker-publish.yml` workflow publishes
+`beherelokesh12345/iris-classifier:v1` when manually run from `main`. Before
+running it, create a Docker Hub access token with read/write permissions and
+add these repository secrets under **Settings → Secrets and variables →
+Actions**:
+
+- `DOCKERHUB_USERNAME`: your Docker Hub login username.
+- `DOCKERHUB_TOKEN`: the Docker Hub access token (do not use or commit your
+  account password).
+
+Then open **Actions → Publish Iris classifier to Docker Hub → Run workflow**,
+select `main`, and start the workflow. A successful run builds the image and
+pushes the `v1` tag. Pull it with:
+
+```powershell
+docker pull beherelokesh12345/iris-classifier:v1
+```
+
+The publishing workflow is separate from pull-request checks and refuses to
+publish from a branch other than `main`.
+
 The GitHub Actions `docker-container-check` job also builds the image on an
 Ubuntu runner and verifies container health, the health endpoint, a valid
 prediction and its probabilities, rejection of a request with missing
