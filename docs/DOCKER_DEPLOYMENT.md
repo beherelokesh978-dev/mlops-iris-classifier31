@@ -80,9 +80,17 @@ docker history iris-classifier:v1
 ```
 
 The build is multi-stage to keep training-time scripts and data out of the
-runtime image. No image-size measurement is recorded here; compare the output
-of `docker images` with a single-stage build if a measured comparison is
-required.
+runtime image. The exact image size depends on the pinned Python and
+scikit-learn dependencies; use the `docker images` output rather than assuming
+a particular size.
+
+The GitHub Actions `docker-container-check` job also builds the image on an
+Ubuntu runner and verifies container health, the health endpoint, a valid
+prediction and its probabilities, rejection of a request with missing
+features, server logs, and cached layers on a second build. Its job logs show
+the image size and first/second build output. This runner-based check is useful
+when Docker is not installed locally; it does not report the size of an image
+built on a developer's own machine.
 
 ## Logs and cleanup
 
@@ -94,6 +102,7 @@ docker rm iris-classifier-container
 
 ## Verification status
 
-Validate the build and endpoint behavior on a machine with Docker Desktop or
-Docker Engine installed. A local Docker image build and container run are
-required to record actual image size, health status, and HTTP responses.
+The image build, endpoint behavior, and Docker layer cache are exercised in
+the `docker-container-check` GitHub Actions job. To record a local image size
+or verify a local Docker Engine, repeat the commands above on a machine with
+Docker Desktop or Docker Engine installed.
